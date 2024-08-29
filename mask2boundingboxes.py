@@ -69,7 +69,7 @@ def main():
     parser.add_argument('--input_directory', type=str, default='masks', help='Directory of masks to process')
     parser.add_argument('--mask_output_directory', type=str, default='output', help='Directory containing the processed images')
     parser.add_argument('--yolo_output_directory', type=str, default='seggpt_yolo_files', help='Directory containing the generated masks in yolo format')
-    parser.add_argument('--gray_threshold', type=int, default=100, help='The minimum pixel light level (0-255) to draw bounding boxes around')
+    parser.add_argument('--gray_threshold', type=int, default=5, help='The minimum pixel light level (0-255) to draw bounding boxes around, a level of 1 would detect any non-black pixel')
     parser.add_argument('--limit', type=int, help='Limit on number of masks to process')
     args = parser.parse_args()
 
