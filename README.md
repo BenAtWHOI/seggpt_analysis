@@ -1,3 +1,7 @@
+# Setup
+
+First, extract the zip files from the ```example_data``` directory and place them in the root directory of this project. This is the result of a run using the default parameters (gray_threshold=100, iou_threshold=0.50), the masks outputted by SegGPT, and the YOLO data files from a previous run that I took from the AMPLIfy SegGPT OneDrive location.
+
 # Usage
 
 Convert SegGPT masks to bounding boxes using OpenCV
