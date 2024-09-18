@@ -1,5 +1,11 @@
+analysis_results/
 masks/
+other/
 output/
 seggpt_yolo_files/
 test/
+tmp/
 YOLO_output/
+
+__pycache__/
+*.pyc

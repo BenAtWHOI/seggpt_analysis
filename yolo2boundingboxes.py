@@ -40,15 +40,14 @@ def clear_directory(directory):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yolo_directory', type=str, help='Directory of yolo files to process')
-    parser.add_argument('--mask_directory', type=str, help='The directory of masks to draw the yolo bounding boxes on')
-    parser.add_argument('--output_directory', type=str, help='Where to output the processed images')
+    parser.add_argument('--yolo_directory', type=str, default='YOLO_output', help='Directory of yolo files to process')
+    parser.add_argument('--mask_directory', type=str, default='masks', help='The directory of masks to draw the yolo bounding boxes on')
+    parser.add_argument('--output_directory', type=str, default='output', help='Where to output the processed images')
     parser.add_argument('--limit', type=str, help='Limit on number of masks to process')
     args = parser.parse_args()
 
     # Remove existing contents of output directories
-    output_directory = args.output_directory if args.output_directory else 'output'
-    clear_directory(output_directory)
+    clear_directory(args.output_directory)
 
     # Generate bounding boxes for the specified number of masks
     limit = args.limit
@@ -62,7 +61,7 @@ def main():
                 print(f'{mask_file[:-4]}, {file[:-4]}')
         yolo_file = next((file for file in yolo_files if file[:-4] == mask_file[:-4]), None)
         if yolo_file:
-            generate_bounding_boxes(args.mask_directory, mask_file, args.yolo_directory, yolo_file, output_directory)
+            generate_bounding_boxes(args.mask_directory, mask_file, args.yolo_directory, yolo_file, args.output_directory)
 
 
 if __name__ == '__main__':
